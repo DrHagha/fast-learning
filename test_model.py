@@ -2,11 +2,8 @@ from models import Question, Answer
 from datetime import datetime
 from database import SessionLocal
 
+q = Question(subject='pybo가 무엇인가요?', content='pybo에 대해서 알고 싶습니다.', create_date=datetime.now())
+
 db = SessionLocal()
-
-q= db.query(Question).get(2)
-print(q.id)
-q.suject = "생각보다 할만하다"
+db.add(q)
 db.commit()
-
-print(q.subject)
