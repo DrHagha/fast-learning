@@ -2,7 +2,7 @@ from models import Question, Answer
 from datetime import datetime
 from database import SessionLocal
 
-q = Question(subject='pybo가 무엇인가요?', content='pybo에 대해서 알고 싶습니다.', create_date=datetime.now())
+q = Answer(content = "사랑의 모시깽이", question_id = 1, create_date=datetime.now())
 
 db = SessionLocal()
 db.add(q)

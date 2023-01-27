@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from datetime import datetime
 
 
 class AnswerCreate(BaseModel):
@@ -9,3 +10,11 @@ class AnswerCreate(BaseModel):
         if not v or not v.strip():
             raise ValueError('빈값은 허용되지 않습니다')
         return v
+    
+class Answer(BaseModel):
+    id : int
+    content : str
+    create_date = datetime
+    
+    class Config:
+        orm_mode = True
